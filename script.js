@@ -317,7 +317,7 @@ btnGenerateQuote.addEventListener("click", function () {
     ranIndex = Math.floor(Math.random() * quotes.length);
     currentQuote = quotes[ranIndex];
 
-    quoteField.textContent = `"${currentQuote.quote}"`;
+    quoteField.textContent = `${currentQuote.quote}`;
     authorField.textContent = `— ${currentQuote.author}`;
   }, 600);
 });
