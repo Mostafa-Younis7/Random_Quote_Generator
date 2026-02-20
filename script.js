@@ -304,6 +304,7 @@ const quoteIcon = document.querySelector(".quote-icon");
 
 let ranIndex = Math.floor(Math.random() * quotes.length);
 let currentQuote = quotes[ranIndex];
+
 btnGenerateQuote.addEventListener("click", function () {
   quoteField.classList.add("flash-animation");
   authorField.classList.add("flash-animation");
@@ -313,11 +314,16 @@ btnGenerateQuote.addEventListener("click", function () {
     authorField.classList.remove("flash-animation");
     quoteIcon.classList.remove("flash-animation");
 
-    quotes.splice(ranIndex, 1);
-    ranIndex = Math.floor(Math.random() * quotes.length);
-    currentQuote = quotes[ranIndex];
+    if (quotes.length > 1) {
+      quotes.splice(ranIndex, 1);
+      ranIndex = Math.floor(Math.random() * quotes.length);
+      currentQuote = quotes[ranIndex];
 
-    quoteField.textContent = `"${currentQuote.quote}"`;
-    authorField.textContent = `— ${currentQuote.author}`;
+      quoteField.textContent = `"${currentQuote.quote}"`;
+      authorField.textContent = `— ${currentQuote.author}`;
+    } else {
+      quoteField.textContent = `I hope you got inspired😊.`;
+      authorField.textContent = '';
+    }
   }, 600);
 });
